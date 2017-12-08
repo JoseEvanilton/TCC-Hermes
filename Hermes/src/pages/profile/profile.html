@@ -1,0 +1,74 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar no-border-bottom color="primary">
+      <button ion-button menuToggle>
+					<ion-icon name="menu"></ion-icon>
+				</button>
+    <ion-title>Editar Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="todo" (ngSubmit)="fron()">
+        
+            <ion-item>
+              <ion-label floating>Nome</ion-label>
+                  <ion-input type="text" formControlName="usuarioName" [(ngModel)]="profile.usuarioName"></ion-input>
+            </ion-item>
+            
+            <ion-item class="no-line error" *ngIf="!todo.controls.usuarioName.valid  && (todo.controls.usuarioName.dirty || submitAttempt) && !todo.controls.usuarioName.pending">
+                <p *ngIf="todo.value.usuarioName != ''" style="color: red;">Somente Letras!</p>
+                <p *ngIf="todo.value.usuarioName == ''" style="color: red;">Campo Obrigatório!</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Celular</ion-label>
+                    <ion-input type="number" formControlName="usuarioCel" [(ngModel)]="profile.usuarioCel"></ion-input>
+              </ion-item>
+              
+              <ion-item class="no-line error" *ngIf="!todo.controls.usuarioCel.valid  && (todo.controls.usuarioCel.dirty || submitAttempt) && !todo.controls.usuarioCel.pending">
+                  <p *ngIf="todo.value.usuarioCel != ''" style="color: red;">Somente Numero!</p>
+                  <p *ngIf="todo.value.usuarioCel == ''" style="color: red;">Campo Obrigatório!</p>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Bairro</ion-label>
+                      <ion-input type="text" formControlName="usuarioBairro" [(ngModel)]="profile.usuarioBairro"></ion-input>
+                </ion-item>
+                
+                <ion-item class="no-line error" *ngIf="!todo.controls.usuarioBairro.valid  && (todo.controls.usuarioBairro.dirty || submitAttempt) && !todo.controls.usuarioBairro.pending">
+                    <p *ngIf="todo.value.usuarioBairro != ''" style="color: red;">Somente Letras!</p>
+                    <p *ngIf="todo.value.usuarioBairro == ''" style="color: red;">Campo Obrigatório!</p>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Rua</ion-label>
+                        <ion-input type="text" formControlName="usuarioRua" [(ngModel)]="profile.usuarioRua"></ion-input>
+                  </ion-item>
+                  
+                  <ion-item class="no-line error" *ngIf="!todo.controls.usuarioRua.valid  && (todo.controls.usuarioRua.dirty || submitAttempt) && !todo.controls.usuarioRua.pending">
+                      <p *ngIf="todo.value.usuarioRua != ''" style="color: red;">Somente Letras!</p>
+                      <p *ngIf="todo.value.usuarioRua == ''" style="color: red;">Campo Obrigatório!</p>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label floating>Numero</ion-label>
+                          <ion-input type="number" formControlName="usuarioNumero" [(ngModel)]="profile.usuarioNumero"></ion-input>
+                    </ion-item>
+                    
+                    <ion-item class="no-line error" *ngIf="!todo.controls.usuarioNumero.valid  && (todo.controls.usuarioNumero.dirty || submitAttempt) && !todo.controls.usuarioNumero.pending">
+                        <p *ngIf="todo.value.usuarioNumero != ''" style="color: red;">Somente Numero!</p>
+                        <p *ngIf="todo.value.usuarioNumero == ''" style="color: red;">Campo Obrigatório!</p>
+                    </ion-item>
+                    </form>
+
+              
+   
+              <button ion-button full (click)="createProfile()" [disabled]="!todo.valid">SALVAR</button>
+          
+</ion-content>

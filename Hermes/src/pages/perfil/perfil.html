@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-navbar no-border-bottom color="primary">
+			<button ion-button menuToggle>
+					<ion-icon name="menu"></ion-icon>
+				</button>
+	  <ion-title>
+		Perfil
+	  </ion-title>
+	</ion-navbar>
+  
+	<ion-toolbar no-border-top>
+	  <ion-segment [(ngModel)]="perfil">
+		<ion-segment-button value="cliente">
+		  Cliente
+		</ion-segment-button>
+		<ion-segment-button value="mototaxi">
+		  Moto Taxi
+		</ion-segment-button>
+
+	  </ion-segment>
+	</ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+	<div [ngSwitch]="perfil">
+	  <ion-list *ngSwitchCase="'cliente'">										
+				  <ion-item>
+							Nome: {{(profileData | async)?.usuarioName}} 
+				  </ion-item>
+				  <ion-item>
+							Celular: {{(profileData | async)?.usuarioCel}} 
+				  </ion-item>
+				  <ion-item>
+							Bairro: {{(profileData | async)?.usuarioBairro}} 
+				  </ion-item>
+				  <ion-item>
+							Rua: {{(profileData | async)?.usuarioRua}} 
+				  </ion-item>
+				  <ion-item>
+							Numero: {{(profileData | async)?.usuarioNumero}} 
+				  </ion-item>
+					<ion-item>
+						Perfil: {{(profileData | async)?.usuarioPerfil}} 
+				</ion-item>
+					<div padding>
+							<button ion-button block (click)="editarPerfil()" color="primary">Editar Perfil</button>
+						</div>
+	
+				</ion-list>
+	  
+	  <ion-list *ngSwitchCase="'mototaxi'">
+			
+				<ion-item>
+						Nome: {{(profileData | async)?.usuarioName}} 
+				</ion-item>
+				<ion-item>
+						Celular: {{(profileData | async)?.usuarioCel}} 
+				</ion-item>
+				<ion-item>
+						Bairro: {{(profileData | async)?.usuarioBairro}} 
+				</ion-item>
+				<ion-item>
+						Rua: {{(profileData | async)?.usuarioRua}} 
+				</ion-item>
+				<ion-item>
+						Numero: {{(profileData | async)?.usuarioNumero}} 
+				</ion-item>
+				<ion-item>
+						Perfil: {{(profileData | async)?.usuarioPerfil}} 
+			</ion-item>
+				<div padding>
+						<button ion-button block (click)="editarPerfil()" color="primary">Editar Perfil</button>
+					</div>
+	  </ion-list>
+
+	</div>
+
+
+	</ion-content>

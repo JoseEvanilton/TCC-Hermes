@@ -1,0 +1,87 @@
+<ion-header>
+	<ion-navbar no-border-bottom color="primary">
+			<button ion-button menuToggle>
+					<ion-icon name="menu"></ion-icon>
+				</button>
+	  <ion-title>
+		Gerenciar Perfil
+		</ion-title>
+
+	</ion-navbar>
+  
+	<ion-toolbar no-border-top>
+	  <ion-segment [(ngModel)]="gerencia">
+		<ion-segment-button value="cliente">
+		  Cliente
+		</ion-segment-button>
+		<ion-segment-button value="mototaxi">
+		  Moto Taxi
+		</ion-segment-button>
+		<ion-segment-button value="gerente">
+		  Gerente
+		</ion-segment-button>
+
+	  </ion-segment>
+	</ion-toolbar>
+
+  </ion-header>
+  
+  <ion-content>
+	
+
+	
+		
+	<div [ngSwitch]="gerencia">
+	  <ion-list *ngSwitchCase="'cliente'">		
+
+
+				<ion-list *ngFor = "let item of items | async"(click)="selectProfile(item)">
+				
+					<div  *ngIf="(item.usuarioPerfil !== 'Mototáxi') && (item.usuarioPerfil !== 'Administrador')">
+									<ion-item >
+											<ion-icon name="ios-contact-outline" item-start></ion-icon>
+											<h2>Nome: {{item.usuarioName}}</h2>
+											<h6>Celular: {{item.usuarioCel}}</h6>
+										</ion-item>
+									</div>
+					
+					</ion-list>
+
+				</ion-list>
+	
+	  <ion-list *ngSwitchCase="'mototaxi'">
+			
+			<ion-list *ngFor = "let item of items | async"(click)="selectProfile(item)">
+				
+					<div  *ngIf="item.usuarioPerfil === 'Mototáxi'">
+									<ion-item >
+											<ion-icon name="ios-contact-outline" item-start></ion-icon>
+											<h2>Nome: {{item.usuarioName}}</h2>
+											<h6>Celular: {{item.usuarioCel}}</h6>
+										</ion-item>
+									</div>
+					
+					</ion-list>
+
+				</ion-list>
+
+		<ion-list *ngSwitchCase="'gerente'">
+			
+			<ion-list *ngFor = "let item of items | async"(click)="selectProfile(item)">
+				
+					<div  *ngIf="item.usuarioPerfil === 'Administrador'">
+									<ion-item >
+											<ion-icon name="ios-contact-outline" item-start></ion-icon>
+											<h2>Nome: {{item.usuarioName}}</h2>
+											<h6>Celular: {{item.usuarioCel}}</h6>
+										</ion-item>
+									</div>
+					
+					</ion-list>
+
+	  </ion-list>
+  
+	</div>
+
+	</ion-content>
+	

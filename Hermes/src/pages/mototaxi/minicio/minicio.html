@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src= "{{imgUrl}}" alt="{{displayName}}" />
+  <ion-card-title>Bem vindo!{{displayName}}</ion-card-title>
+  <h2>Welcome to Ionic!</h2>
+  <p>
+    This starter project comes with simple tabs-based layout for apps
+    that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs,
+    update any existing page or create new pages.
+  </p>
+  <button ion-button block icon-start (click)="doPrompt()">
+    <ion-icon name="md-search" ></ion-icon>
+    Buscar MotoTaxi
+  </button>
+  <ion-item>
+    <ion-label>Receber Corrida</ion-label>
+    <ion-checkbox color="blue" checked="false"></ion-checkbox>
+  </ion-item>
+
+</ion-content>

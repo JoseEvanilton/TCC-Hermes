@@ -1,0 +1,54 @@
+
+
+  
+  <ion-content padding class="background"> 
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8></ion-col>
+        <ion-col col-8>
+          <img src="assets/img/logo.png">
+        </ion-col>
+        <ion-col col-8></ion-col>
+      </ion-row>
+    </ion-grid>
+     
+  <form #form="ngForm" novalidate>
+    <ion-list class="list-form">
+      
+      <ion-item class=list-text>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+
+      <ion-item class=list-text>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+  
+    </ion-list>
+  
+    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="signIn()">
+      Entrar
+    </button>
+  </form>
+     <div text-center class ="text" (click)="resetPassword()">Esqueceu a Senha</div>
+  
+    <button ion-button class="bottom-transparent" block  (click)="createAccount()">Registrar</button>
+
+  	<button ion-button block color="facebook"(click) = "signInWithFacebook()">
+      <ion-icon name="logo-facebook"></ion-icon> Login com Facebook
+    </button>
+
+    <button ion-button block color="google"(click) = "signInWithGoogle()">
+      <ion-icon name="logo-google"></ion-icon> Login com Google
+    </button>
+    
+  </ion-content>
+  

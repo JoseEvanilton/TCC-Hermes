@@ -1,0 +1,47 @@
+<ion-menu id="myMenu" [content]="content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+        <ion-col col-8></ion-col>
+        <ion-col col-8 >
+          <img src="assets/img/logo.png">
+         
+        </ion-col>
+        <ion-col col-8></ion-col>
+        <h6 class="name">{{(profileData | async)?.usuarioName}}</h6> 
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+
+        <ion-icon [name]="p.icon" item-left></ion-icon>
+  
+        {{p.title}}
+      </button>
+    
+
+
+      <!-- <div *ngFor="let item of itemss | async"> 
+        <div *ngIf="((item.usuarioPerfil === 'Mototáxi') || (item.usuarioPerfil === 'Administrador'))"> 
+   
+    <button menuClose ion-item (click)="gerenciar()" >
+      <ion-icon name="settings-outline" item-left></ion-icon>
+    Gerenciar
+  </button>
+        </div>
+      </div> -->
+
+      <button menuClose ion-item (click)="signOut()" class="sair">
+          <ion-icon name="exit" item-left></ion-icon>
+        Sair
+      </button>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

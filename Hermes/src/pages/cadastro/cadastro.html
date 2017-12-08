@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-navbar no-border-bottom color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <ion-title>
+      Perfil
+      </ion-title>
+    </ion-navbar>
+    
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="perfil">
+       
+      <ion-segment-button value="cliente">
+        Cliente
+      </ion-segment-button>
+      <ion-segment-button value="mototaxi">
+        Moto Taxi
+      </ion-segment-button>
+  
+      </ion-segment>
+    </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+    <div [ngSwitch]="perfil">
+      <ion-list *ngSwitchCase="'cliente'">										
+            <ion-item>
+              <ion-label floating>Nome</ion-label>
+              <ion-input type="text" name="usuarioName" [(ngModel)]="usuarioName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Numero Celular</ion-label>
+              <ion-input type="text" name="usuarioCel" [(ngModel)]="usuarioCel"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Bairro</ion-label>
+              <ion-input type="text" name="usuarioBairro" [(ngModel)]="usuarioBairro"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Rua</ion-label>
+              <ion-input type="text" name="usuarioRua" [(ngModel)]="usuarioRua"></ion-input>
+            </ion-item>        
+            <ion-item>
+              <ion-label floating>Numero</ion-label>
+              <ion-input type="text" name="usuarioNumero" [(ngModel)]="usuarioNumero"></ion-input>
+            </ion-item>
+            <div padding>
+              <button ion-button block (click)="save()" color="primary">Salvar</button>
+            </div>
+          </ion-list>
+      
+      <ion-list *ngSwitchCase="'mototaxi'">
+          <ion-item>
+              <ion-label floating>Nome</ion-label>
+              <ion-input type="text" name="usuarioName" [(ngModel)]="usuarioName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Numero Celular</ion-label>
+              <ion-input type="text" name="usuarioCel" [(ngModel)]="usuarioCel"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Cpf</ion-label>
+                <ion-input type="text" name="usuarioCpf" [(ngModel)]="usuarioCpf"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Cnpj</ion-label>
+                  <ion-input type="text" name="usuarioCnpj" [(ngModel)]="usuarioCnpj"></ion-input>
+                </ion-item>
+            <ion-item>
+              <ion-label floating>Bairro</ion-label>
+              <ion-input type="text" name="usuarioBairro" [(ngModel)]="usuarioBairro"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Rua</ion-label>
+              <ion-input type="text" name="usuarioRua" [(ngModel)]="usuarioRua"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Numero</ion-label>
+              <ion-input type="text" name="usuarioNumero" [(ngModel)]="usuarioNumero"></ion-input>
+            </ion-item>
+            <div>
+                <ion-item>       
+                    <ion-label floating>Perfil</ion-label>
+                      <ion-select [(ngModel)]="usuarioPerfil">
+                        <ion-option value="Mototaxi">Mototaxi</ion-option>
+                        <ion-option value="Administrador">Administrador</ion-option>
+                      </ion-select>
+                    </ion-item>      
+            </div>
+            
+            
+
+        <div padding>
+          <button ion-button block (click)="save()" color="primary">Salvar</button>
+        </div>
+      </ion-list>
+    
+    </div>
+    </ion-content>
